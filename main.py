@@ -1,5 +1,7 @@
 import tkinter
 import subprocess
+import urllib as url
+from PIL import Image
 #import generateimage.py
 #import EncoderDecoder.py
 
@@ -8,9 +10,13 @@ file_path = "/Users/armaan/Downloads/ImageGenerator-main/generateimage.py"
 root = tkinter.Tk()
 
 def GenerateButton():
+    global result1
     command = "python3 generateimage.py"
-    result = subprocess.check_output(command, shell=True, text=True)
-    print(result)
+    result1 = subprocess.check_output(command, shell=True, text=True)
+    url.urlretrieve(result1, "ai.png")
+    picture = Image.open(result1)
+    picture.save("picture.png")
+
 
 def setup():
     root.title("Airplane Display")

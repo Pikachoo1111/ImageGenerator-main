@@ -44,7 +44,7 @@ def remove_text_after_keyword(text, keyword):
     else:
         return text
 new_text = remove_text_before_keyword(response.text, '"image_resource_url":"')
-new_text = remove_text_after_keyword(new_text, ']},"cost":')
+new_text = remove_text_after_keyword(new_text, '"}],"cost":')
 # Example usage
 
 
