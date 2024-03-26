@@ -2,8 +2,14 @@ import tkinter
 import subprocess
 import urllib as url
 from PIL import Image
+import wget
 #import generateimage.py
 #import EncoderDecoder.py
+import ssl
+
+# Disable SSL certificate verification
+ssl._create_default_https_context = ssl._create_unverified_context
+
 
 file_path = "/Users/armaan/Downloads/ImageGenerator-main/generateimage.py"
 
@@ -13,9 +19,8 @@ def GenerateButton():
     global result1
     command = "python3 generateimage.py"
     result1 = subprocess.check_output(command, shell=True, text=True)
-    url.urlretrieve(result1, "ai.png")
-    picture = Image.open(result1)
-    picture.save("picture.png")
+    wget.download(result1, "/Users/armaan/Downloads/Images")
+
 
 
 def setup():
