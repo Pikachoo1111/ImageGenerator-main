@@ -1,7 +1,6 @@
 import requests
 
 url = "https://api.edenai.run/v2/image/generation"
-prompt = input("Enter a prompt")
 payload = {
     "response_as_dict": True,
     "attributes_as_list": False,
@@ -9,7 +8,7 @@ payload = {
     "resolution": "256x256",
     "num_images": 1,
     "providers": "replicate",
-    "text": prompt
+    "text": "Airplanes"
 }
 headers = {
     "accept": "application/json",
