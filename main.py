@@ -1,7 +1,7 @@
-import tkinter
+import tkinter as tk
 import subprocess
 import urllib as url
-from PIL import Image
+from PIL import Image, ImageTk
 import wget
 #import generateimage.py
 #import EncoderDecoder.py
@@ -13,13 +13,21 @@ ssl._create_default_https_context = ssl._create_unverified_context
 
 file_path = "/Users/armaan/Downloads/ImageGenerator-main/generateimage.py"
 
-root = tkinter.Tk()
+root = tk.Tk()
 
 def GenerateButton():
     global result1
     command = "python3 generateimage.py"
     result1 = subprocess.check_output(command, shell=True, text=True)
-    wget.download(result1, "/Users/armaan/Downloads/Images")
+    wget.download(result1, "/Users/armaan/Downloads/ImageGenerator-main/Images")
+    image = Image.open("/Users/armaan/Downloads/ImageGenerator-main/Images/ai.png")
+    tk_image = ImageTk.PhotoImage(image)
+    label = tk.Label(root, image=tk_image)
+    label.pack()
+
+
+
+    
 
 
 
@@ -28,10 +36,10 @@ def setup():
     root.geometry("1920x600")
     root.configure(bg="white")
     root.resizable(False, False)
-    label = tkinter.Label(root, text="Airplane Display", font=("Arial", 24), bg="black")
+    label = tk.Label(root, text="Airplane Display", font=("Arial", 24), bg="black")
     label.place(x=960, y=150)
     label.pack()
-    button = tkinter.Button(root, text="Generate Image", font=("Arial", 24), bg="white", command=GenerateButton)
+    button = tk.Button(root, text="Generate Image", font=("Arial", 24), bg="white", command=GenerateButton)
     button.pack()
     
 
