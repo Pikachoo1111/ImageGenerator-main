@@ -7,7 +7,6 @@ import wget
 #import EncoderDecoder.py
 import ssl
 import os
-import time
 
 # Disable SSL certificate verification
 ssl._create_default_https_context = ssl._create_unverified_context
@@ -22,6 +21,7 @@ def GenerateButton():
     command = "python3 generateimage.py"
     result1 = subprocess.check_output(command, shell=True, text=True)
     wget.download(result1, "/Users/armaan/Downloads/ImageGenerator-main/Images")
+    encodeImage("/Users/armaan/Downloads/ImageGenerator-main/Images/ai.png")
     image = Image.open("/Users/armaan/Downloads/ImageGenerator-main/Images/ai.png")
     resized_image = image.resize((500, 500))  # Resize the image to desired dimensions
     tk_image = ImageTk.PhotoImage(resized_image)
@@ -30,7 +30,11 @@ def GenerateButton():
     label.pack()
     os.remove("/Users/armaan/Downloads/ImageGenerator-main/Images/ai.png")  # Remove the image after displaying it
 
-
+def encodeImage(filepath):
+    global result2
+    command = "python3 EncoderDecoder.py -e " + filepath
+    result2 = subprocess.check_output(command, shell=True, text=True)
+    return result2
 
     
 

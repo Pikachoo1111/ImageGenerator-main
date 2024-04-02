@@ -81,7 +81,7 @@ def Main():
     parser.add_option('-d', dest='retr', type='string', help='target picture path to retrieve text')
     (options, args) = parser.parse_args()
     if (options.hide != None):
-        text = input("Enter a message to hide: ")
+        text = "This is the message hidden. Congratulations on finding it!"
         print (hide(options.hide, text))
     elif (options.retr != None):
         print (retr(options.retr))
