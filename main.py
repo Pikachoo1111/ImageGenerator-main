@@ -17,7 +17,9 @@ file_path = "/Users/armaan/Downloads/ImageGenerator-main/generateimage.py"
 root = tk.Tk()
 
 def GenerateButton():
-    global result1
+    global result1, label
+    if 'label' in locals():
+        label.destroy()
     command = "python3 generateimage.py"
     result1 = subprocess.check_output(command, shell=True, text=True)
     wget.download(result1, "/Users/armaan/Downloads/ImageGenerator-main/Images")

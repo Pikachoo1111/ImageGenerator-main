@@ -8,7 +8,7 @@ payload = {
     "resolution": "256x256",
     "num_images": 1,
     "providers": "replicate",
-    "text": "Modern looking Airplane"
+    "text": "Modern looking Airplane in the sky."
 }
 headers = {
     "accept": "application/json",
