@@ -52,7 +52,7 @@ def on_configure(event):
 frame.bind("<Configure>", on_configure)
 
 # Set up the UI
-label_title = tk.Label(frame, text="Images", font=("Arial", 32), bg="black", fg="white")
+label_title = tk.Label(frame, text="Images", font=("Arial", 32), bg="white", fg="black")
 label_title.pack(pady=20)
 
 button_generate = tk.Button(frame, text="Generate Image", font=("Arial", 18), bg="white", command=GenerateButton)
