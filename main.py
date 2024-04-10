@@ -1,9 +1,9 @@
-import tkinter as tk
-from PIL import Image, ImageTk
-import subprocess
-import wget
 import os
 import ssl
+import subprocess
+import tkinter as tk
+import wget
+from PIL import Image, ImageTk
 
 # Disable SSL certificate verification
 ssl._create_default_https_context = ssl._create_unverified_context
@@ -13,15 +13,15 @@ def GenerateButton():
     global result1, label
     command = "python3 generateimage.py"
     result1 = subprocess.check_output(command, shell=True, text=True)
-    wget.download(result1, "/Users/armaan/Downloads/ImageGenerator-main/Images")
-    encodeImage("/Users/armaan/Downloads/ImageGenerator-main/Images/ai.png")
-    image = Image.open("/Users/armaan/Downloads/ImageGenerator-main/Images/ai.png")
+    wget.download(result1, "Images")
+    encodeImage("Images/ai.png")
+    image = Image.open("Images/ai.png")
     resized_image = image.resize((500, 500))  # Resize the image to desired dimensions
     tk_image = ImageTk.PhotoImage(resized_image)
     label = tk.Label(frame, image=tk_image)
     label.image = tk_image  # Keep a reference to the image to prevent garbage collection
     label.pack()
-    os.remove("/Users/armaan/Downloads/ImageGenerator-main/Images/ai.png")  # Remove the image after displaying it
+    os.remove("Images/ai.png")  # Remove the image after displaying it
 
 # Function to encode image
 def encodeImage(filepath):
