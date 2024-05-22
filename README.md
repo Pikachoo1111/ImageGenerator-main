@@ -1,2 +1,11 @@
-**What it is**
-This is a project that uses the power of AI to generate images to have messages encoded into them. It works by using 
+**What it is:** <br>
+This is a project harnessing AI capabilities to create images with embedded messages. Currently centered around airplanes and aircraft, the theme can be changed. Using LSB (Least Significant Bit) steganography, messages are concealed within the generated images. This technology, often associated with espionage and spycraft, facilitates covert communication by hiding information in plain sight. Each image serves as a carrier for secret messages, making it a versatile tool for secure communication.
+
+**How it works:** <br>
+This project uses a technology called Least Significant Bit (LSB) encryption. The LSB encryption process starts by loading the image where you want to conceal the message, and converts it into binary, a series of ones and zeros. It appends a set of ones and zeros to the least significant bit in the RGB value. Recall that RGB is made up of three values, red (R), green (G), and blue (B), each of which contain eight binary bits. LSB encryption is essentially finding whichever one of these three colors has the least significant value and appending extra ones and zeros to change the color a slight bit. This alteration is so slight that it's virtually imperceptible.For every pixel, it subtly modifies the color values to embed a portion of the binary message. Finally, it saves the modified image with the hidden message securely embedded.
+
+As for an explanation of the different files, they are all intended to be run in the same directory. main.py calls upon the other scripts to encode/decode, and to generate images. The project is structured like this to help minimize interference between different components. In addition, this helps to ensure that the API requests script stays seperate from everything else, aiding with troubleshooting. There are a multitude of different libraries required, and they are all extremely critical, so please ensure to have them all installed. 
+
+**What I learned** <br>
+This project gave me an introduction to the usage of PIL (Python Imaging Library), which is a package of software inteded for image manipulation within the Python script. In addition, it taught me a lot about requests, ssl, and using API's (Application Programming Interfaces), which are essentially a software intermediary that allows different programs to communicate. In addition, this project taught me how to integrate multiple files into a single Python project, and call upon them from within the code.
+
